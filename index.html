@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f5f6f2">
+    <link rel="icon" href="assets/campusconnect-mark.svg" type="image/svg+xml">
+    <title>CampusConnect | Your campus, closer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-shell">
+        <aside class="sidebar" aria-label="Main navigation">
+            <a class="brand" href="#home" data-nav="home" aria-label="CampusConnect home">
+                <img class="brand-mark" src="assets/campusconnect-mark.svg" alt=""><span
+                    class="brand-name">Campus<span>Connect</span></span>
+            </a>
+            <p class="side-label">Workspace</p>
+            <nav class="side-nav">
+                <button class="nav-button active" data-view="home"><span class="nav-icon">⌂</span><span
+                        class="nav-label">Home feed</span></button>
+                <button class="nav-button" data-view="people"><span class="nav-icon">♧</span><span
+                        class="nav-label">Discover people</span></button>
+                <button class="nav-button" data-view="jobs"><span class="nav-icon">▣</span><span class="nav-label">Jobs
+                        & internships</span></button>
+                <button class="nav-button" data-view="events"><span class="nav-icon">▦</span><span
+                        class="nav-label">Events</span></button>
+                <button class="nav-button" data-view="communities"><span class="nav-icon">◉</span><span
+                        class="nav-label">Communities</span></button>
+                <button class="nav-button" data-view="courses"><span class="nav-icon">▤</span><span
+                        class="nav-label">Courses</span></button>
+                <button class="nav-button" data-view="chat"><span class="nav-icon">▱</span><span
+                        class="nav-label">Messages</span><span class="nav-count">2</span></button>
+            </nav>
+            <p class="side-label">You</p>
+            <nav class="side-nav">
+                <button class="nav-button" data-view="profile"><span class="nav-icon">◎</span><span class="nav-label">My
+                        profile</span></button>
+                <button class="nav-button" data-view="auth"><span class="nav-icon">↗</span><span class="nav-label">Login
+                        / Sign up</span></button>
+            </nav>
+            <div class="sidebar-spacer"></div>
+            <div class="sidebar-note"><strong>Good things grow together.</strong>
+                <p>Your campus community is just getting started.</p>
+            </div>
+            <div class="profile-mini">
+                <div class="avatar">JD</div>
+                <div><strong id="sidebar-name">Jordan Davis</strong><span>Northbridge College</span></div>
+            </div>
+        </aside>
+
+        <div class="workspace">
+            <header class="topbar">
+                <div class="topbar-title"><img class="topbar-logo-mark" src="assets/campusconnect-mark.svg"
+                        alt="CampusConnect"><span id="topbar-title">Home feed</span></div>
+                <form class="search-wrap" id="global-search-form" role="search">
+                    <input class="search-input" id="global-search" type="search"
+                        placeholder="Search students, posts, opportunities..." aria-label="Search students and content">
+                </form>
+                <div class="top-actions">
+                    <button class="icon-button" data-view="chat" aria-label="Open messages" title="Messages">▱</button>
+                    <button class="icon-button mobile-join" data-view="auth" aria-label="Log in or sign up"
+                        title="Log in or sign up">↗</button>
+                    <button class="primary-button" data-view="profile">Edit profile</button>
+                </div>
+            </header>
+
+            <main class="content-wrap">
+                <section class="view-panel" id="view-home" data-panel="home">
+                    <div class="page-heading">
+                        <div>
+                            <p class="eyebrow">Monday, October 26</p>
+                            <h1 id="home-greeting">Good morning, Jordan</h1>
+                            <p class="subheading">See what's happening around your campus.</p>
+                        </div><button class="primary-button" data-view="people">Meet students <span>→</span></button>
+                    </div>
+                    <div class="feed-grid">
+                        <div class="feed-column">
+                            <form class="panel composer" id="post-form">
+                                <div class="composer-top">
+                                    <div class="avatar">JD</div><textarea id="post-input"
+                                        placeholder="Share an idea, ask a question, or celebrate a win..."
+                                        aria-label="Write a post"></textarea>
+                                </div>
+                                <div class="composer-bottom"><span class="composer-hint">Posting to your campus
+                                        community</span><button class="primary-button" type="submit">Share post</button>
+                                </div>
+                            </form>
+                            <div id="feed-posts" class="feed-column" aria-live="polite"></div>
+                        </div>
+                        <aside class="right-column">
+                            <div class="panel mini-panel">
+                                <div class="mini-panel-head">
+                                    <h2>People to know</h2><button class="text-link" data-view="people">See all</button>
+                                </div>
+                                <div class="people-stack" id="suggested-people"></div>
+                            </div>
+                            <div class="panel mini-panel">
+                                <div class="mini-panel-head">
+                                    <h2>Coming up</h2><button class="text-link" data-view="events">All events</button>
+                                </div>
+                                <div class="event-teaser">
+                                    <div class="date-tile"><strong>29</strong><span>Oct</span></div>
+                                    <div><strong>Design for Good Night</strong><small>Student Union · 5:30 PM</small>
+                                    </div>
+                                </div>
+                                <div class="event-teaser">
+                                    <div class="date-tile"><strong>02</strong><span>Nov</span></div>
+                                    <div><strong>Autumn Makers Market</strong><small>Arts Quad · 11:00 AM</small></div>
+                                </div>
+                            </div>
+                            <div class="demo-note"><strong>Demo experience.</strong> Sample people and activity are
+                                fictional. Actions are saved only in this page session.</div>
+                        </aside>
+                    </div>
+                </section>
+
+                <section class="view-panel" id="view-people" data-panel="people" hidden>
+                    <div class="page-heading">
+                        <div>
+                            <p class="eyebrow">Find your people</p>
+                            <h1>Student community</h1>
+                            <p class="subheading">Meet classmates, collaborators, and future friends.</p>
+                        </div>
+                    </div>
+                    <div class="filter-row"><button class="filter-chip active" data-people-filter="All students">All
+                            students</button><button class="filter-chip"
+                            data-people-filter="Design">Design</button><button class="filter-chip"
+                            data-people-filter="Technology">Technology</button><button class="filter-chip"
+                            data-people-filter="Business">Business</button><button class="filter-chip"
+                            data-people-filter="Arts">Arts</button></div>
+                    <div class="collection-grid" id="people-grid"></div>
+                    <p class="demo-note" style="margin-top:16px"><strong>Fictional demo profiles.</strong> Connect
+                        actions are a local interface preview and do not send invitations.</p>
+                </section>
+
+                <section class="view-panel" id="view-jobs" data-panel="jobs" hidden>
+                    <div class="page-heading">
+                        <div>
+                            <p class="eyebrow">Take your next step</p>
+                            <h1>Jobs & internships</h1>
+                            <p class="subheading">Opportunities selected for curious students.</p>
+                        </div><button class="outline-button" data-view="profile">Add your interests</button>
+                    </div>
+                    <div class="filter-row"><button class="filter-chip active" data-job-filter="All roles">All
+                            roles</button><button class="filter-chip"
+                            data-job-filter="Internship">Internships</button><button class="filter-chip"
+                            data-job-filter="Part-time">Part-time</button><button class="filter-chip"
+                            data-job-filter="Remote">Remote</button></div>
+                    <div class="collection-grid" id="jobs-grid"></div>
+                    <p class="demo-note" style="margin-top:16px"><strong>Sample listings.</strong> These fictional
+                        opportunities are for demonstration and are not live openings.</p>
+                </section>
+
+                <section class="view-panel" id="view-events" data-panel="events" hidden>
+                    <div class="page-heading">
+                        <div>
+                            <p class="eyebrow">Make a memory</p>
+                            <h1>Campus events</h1>
+                            <p class="subheading">Meet up, learn something, or try a new thing.</p>
+                        </div><button class="primary-button" id="event-calendar-button">＋ Add to my calendar</button>
+                    </div>
+                    <div class="collection-grid" id="events-grid"></div>
+                    <p class="demo-note" style="margin-top:16px"><strong>CampusConnect demo.</strong> RSVP and calendar
+                        actions only update this page.</p>
+                </section>
+
+                <section class="view-panel" id="view-communities" data-panel="communities" hidden>
+                    <div class="page-heading">
+                        <div>
+                            <p class="eyebrow">Find your corner</p>
+                            <h1>College communities</h1>
+                            <p class="subheading">Small groups make a big campus feel closer.</p>
+                        </div>
+                    </div>
+                    <div class="collection-grid" id="communities-grid"></div>
+                </section>
+
+                <section class="view-panel" id="view-courses" data-panel="courses" hidden>
+                    <div class="page-heading">
+                        <div>
+                            <p class="eyebrow">Learn together</p>
+                            <h1>Courses & study groups</h1>
+                            <p class="subheading">Find a study buddy or join a peer-led learning circle.</p>
+                        </div>
+                    </div>
+                    <div class="collection-grid" id="courses-grid"></div>
+                </section>
+
+                <section class="view-panel" id="view-chat" data-panel="chat" hidden>
+                    <div class="page-heading">
+                        <div>
+                            <p class="eyebrow">Keep the conversation going</p>
+                            <h1>Messages</h1>
+                            <p class="subheading">A friendly demo chat with fictional students.</p>
+                        </div>
+                    </div>
+                    <div class="chat-layout">
+                        <div class="chat-list">
+                            <div class="chat-list-head">
+                                <h2>Inbox</h2><input id="chat-search" type="search" placeholder="Find a conversation"
+                                    aria-label="Find a conversation">
+                            </div>
+                            <div id="chat-contacts"></div>
+                        </div>
+                        <div class="chat-main">
+                            <div class="chat-header">
+                                <div class="avatar coral" id="chat-avatar">MC</div>
+                                <div><strong id="chat-name">Maya Chen</strong><span>Northbridge College · Design</span>
+                                </div>
+                            </div>
+                            <div class="chat-messages" id="chat-messages" aria-live="polite"></div>
+                            <form class="chat-compose" id="chat-form"><input id="chat-input"
+                                    placeholder="Write a message..." aria-label="Write a message"><button
+                                    class="primary-button" type="submit">Send</button></form>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="view-panel" id="view-profile" data-panel="profile" hidden>
+                    <div class="page-heading">
+                        <div>
+                            <p class="eyebrow">Your campus presence</p>
+                            <h1>Student profile</h1>
+                            <p class="subheading">Show classmates what you care about and what you're working on.</p>
+                        </div>
+                    </div>
+                    <div class="profile-layout">
+                        <div>
+                            <div class="profile-cover"></div>
+                            <div class="profile-summary">
+                                <div class="avatar" id="profile-avatar">JD</div>
+                                <div class="profile-photo-tools"><button class="outline-button" type="button"
+                                        data-photo-picker="profile-photo-input">Add or change photo</button><input
+                                        class="profile-photo-input" id="profile-photo-input" type="file"
+                                        accept="image/jpeg,image/png,image/webp"></div>
+                                <h2 id="profile-card-name">Jordan Davis</h2>
+                                <p id="profile-card-major">Computer Science · Class of 2027</p>
+                                <div class="stat-row">
+                                    <div><strong>128</strong><span>Connections</span></div>
+                                    <div><strong>6</strong><span>Communities</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <form class="panel form-panel" id="profile-form">
+                            <h2>Edit your details</h2>
+                            <p>Your profile stays in this local demo page.</p>
+                            <div class="form-grid">
+                                <div class="field"><label for="profile-name">Full name</label><input id="profile-name"
+                                        value="Jordan Davis" required></div>
+                                <div class="field"><label for="profile-major-input">Major</label><input
+                                        id="profile-major-input" value="Computer Science"></div>
+                                <div class="field"><label for="profile-year">Graduation year</label><select
+                                        id="profile-year">
+                                        <option>2027</option>
+                                        <option>2026</option>
+                                        <option>2028</option>
+                                        <option>2029</option>
+                                    </select></div>
+                                <div class="field"><label for="profile-campus">College</label><input id="profile-campus"
+                                        value="Northbridge College"></div>
+                                <div class="field full"><label for="profile-bio">A little about you</label><textarea
+                                        id="profile-bio" placeholder="What are you curious about?"></textarea></div>
+                                <div class="field full"><label for="profile-interests">Interests</label><input
+                                        id="profile-interests" placeholder="Design, robotics, community service...">
+                                </div>
+                            </div>
+                            <div class="form-actions"><button class="primary-button" type="submit">Save
+                                    profile</button><span class="form-status" id="profile-status" role="status"></span>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <section class="view-panel" id="view-auth" data-panel="auth" hidden>
+                    <div class="page-heading">
+                        <div>
+                            <p class="eyebrow">Start with your campus</p>
+                            <h1>Welcome to CampusConnect</h1>
+                            <p class="subheading">Sign in to continue or create a demo profile.</p>
+                        </div>
+                    </div>
+                    <div class="auth-wrap">
+                        <div class="auth-intro">
+                            <div>
+                                <p class="eyebrow">Your campus, closer</p>
+                                <h2>Make room for good connections.</h2>
+                                <p>Meet people who share your curiosity, find opportunities, and make campus life more
+                                    yours.</p>
+                            </div><img class="intro-logo" src="assets/campusconnect-logo-on-dark.svg"
+                                alt="CampusConnect. Connect, Learn, Grow">
+                        </div>
+                        <form class="auth-form" id="auth-form">
+                            <h2 id="auth-title">Create your account</h2>
+                            <p id="auth-subtitle">Join your campus community today.</p>
+                            <div class="auth-tabs"><button class="auth-tab active" type="button"
+                                    data-auth-mode="signup">Sign up</button><button class="auth-tab" type="button"
+                                    data-auth-mode="login">Log in</button></div>
+                            <div id="auth-credentials" hidden>
+                                <div class="field"><label for="auth-email">Email address</label><input id="auth-email"
+                                        type="email" placeholder="you@college.edu" autocomplete="email"></div>
+                                <div class="field"><label for="auth-password">Password</label><input id="auth-password"
+                                        type="password" placeholder="Enter your password"
+                                        autocomplete="current-password"></div>
+                            </div>
+                            <button class="primary-button" id="auth-submit" type="submit">Continue to sign up</button>
+                            <p id="auth-status" class="form-status" role="status" style="margin:12px 0 0"></p>
+                            <p class="demo-note" style="margin-top:18px">Demo only. Authentication is not connected; no
+                                account is created and credentials are not stored or sent.</p>
+                        </form>
+                    </div>
+                </section>
+
+                <section class="view-panel" id="view-signup" data-panel="signup" hidden>
+                    <div class="page-heading">
+                        <div>
+                            <p class="eyebrow">Create your account</p>
+                            <h1>Join CampusConnect</h1>
+                            <p class="subheading">A few steps to make your campus feel closer.</p>
+                        </div>
+                    </div>
+                    <div class="onboarding-shell">
+                        <div class="onboarding-intro">
+                            <div>
+                                <p class="eyebrow">Your campus, closer</p>
+                                <h2>Start with a fresh introduction.</h2>
+                                <p>Create a profile to meet classmates, discover opportunities, and find your
+                                    communities.</p>
+                            </div><img class="intro-logo" src="assets/campusconnect-logo-on-dark.svg"
+                                alt="CampusConnect. Connect, Learn, Grow">
+                        </div>
+                        <form class="onboarding-card" id="signup-form" novalidate>
+                            <div class="step-progress" aria-label="Step 1 of 3"><span>1/3</span><span
+                                    class="step-track"><span class="step-fill"
+                                        style="display:block;width:33.333%"></span></span><span>Account</span></div>
+                            <h2>Create account</h2>
+                            <p>Choose your sign-in details. This demo does not create or store an account.</p>
+                            <div class="field"><label for="signup-username">Username</label><input id="signup-username"
+                                    autocomplete="username" required minlength="3" maxlength="30"
+                                    placeholder="Choose a username">
+                                <p class="field-error" id="signup-username-error" aria-live="polite"></p>
+                            </div>
+                            <div class="field"><label for="signup-password">Password</label>
+                                <div class="password-wrap"><input id="signup-password" type="password"
+                                        autocomplete="new-password" required minlength="8"
+                                        placeholder="At least 8 characters"><button class="password-toggle"
+                                        type="button" data-toggle-password="signup-password"
+                                        aria-label="Show password">Show</button></div>
+                                <p class="field-error" id="signup-password-error" aria-live="polite"></p>
+                            </div>
+                            <div class="field"><label for="signup-confirm">Confirm password</label>
+                                <div class="password-wrap"><input id="signup-confirm" type="password"
+                                        autocomplete="new-password" required placeholder="Enter password again"><button
+                                        class="password-toggle" type="button" data-toggle-password="signup-confirm"
+                                        aria-label="Show confirm password">Show</button></div>
+                                <p class="field-error" id="signup-confirm-error" aria-live="polite"></p>
+                            </div>
+                            <p class="field-error" id="signup-error" role="alert"></p>
+                            <div class="onboarding-actions"><button class="quiet-button" type="button"
+                                    data-auth-return>Already have an account? Log in</button><button
+                                    class="primary-button" type="submit">Continue <span>→</span></button></div>
+                            <div class="onboarding-note">Secure authentication is not connected in this demo. Your
+                                password is used only for this form check and is never saved.</div>
+                        </form>
+                    </div>
+                </section>
+
+                <section class="view-panel" id="view-details" data-panel="details" hidden>
+                    <div class="page-heading">
+                        <div>
+                            <p class="eyebrow">A little about you</p>
+                            <h1>Student details</h1>
+                            <p class="subheading">Help classmates find and connect with you.</p>
+                        </div>
+                    </div>
+                    <div class="onboarding-shell">
+                        <div class="onboarding-intro">
+                            <div>
+                                <p class="eyebrow">Build your campus profile</p>
+                                <h2>Put a name to your next connection.</h2>
+                                <p>Only the details you choose to share belong on your profile.</p>
+                            </div><img class="intro-logo" src="assets/campusconnect-logo-on-dark.svg"
+                                alt="CampusConnect. Connect, Learn, Grow">
+                        </div>
+                        <form class="onboarding-card" id="details-form" novalidate>
+                            <div class="step-progress" aria-label="Step 2 of 3"><span>2/3</span><span
+                                    class="step-track"><span class="step-fill"
+                                        style="display:block;width:66.666%"></span></span><span>Details</span></div>
+                            <h2>Student details</h2>
+                            <p>Tell your campus community the basics.</p>
+                            <div class="field"><label for="student-full-name">Full name</label><input
+                                    id="student-full-name" autocomplete="name" required placeholder="Your full name">
+                                <p class="field-error" data-error-for="student-full-name" aria-live="polite"></p>
+                            </div>
+                            <div class="field"><label for="student-email">Email address</label><input id="student-email"
+                                    type="email" autocomplete="email" required placeholder="you@college.edu">
+                                <p class="field-error" data-error-for="student-email" aria-live="polite"></p>
+                            </div>
+                            <div class="form-grid">
+                                <div class="field"><label for="student-gender">Gender <span
+                                            class="listing-meta">(optional)</span></label><select id="student-gender">
+                                        <option value="">Choose if you wish</option>
+                                        <option>Woman</option>
+                                        <option>Man</option>
+                                        <option>Non-binary</option>
+                                        <option>Prefer not to say</option>
+                                    </select></div>
+                                <div class="field"><label for="student-age">Age</label><input id="student-age"
+                                        type="number" min="16" max="120" required inputmode="numeric" placeholder="Age">
+                                    <p class="field-error" data-error-for="student-age" aria-live="polite"></p>
+                                </div>
+                                <div class="field full"><label for="student-qualification">Qualification</label><select
+                                        id="student-qualification" required>
+                                        <option value="">Select qualification</option>
+                                        <option>B.E.</option>
+                                        <option>B.Tech</option>
+                                        <option>B.Sc.</option>
+                                        <option>B.Com.</option>
+                                        <option>Diploma</option>
+                                        <option>Other</option>
+                                    </select>
+                                    <p class="field-error" data-error-for="student-qualification" aria-live="polite">
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="field-error" id="details-error" role="alert"></p>
+                            <div class="onboarding-actions"><button class="outline-button" type="button"
+                                    data-onboarding-back="signup">← Back</button><button class="primary-button"
+                                    type="submit">Continue <span>→</span></button></div>
+                        </form>
+                    </div>
+                </section>
+
+                <section class="view-panel" id="view-photo" data-panel="photo" hidden>
+                    <div class="page-heading">
+                        <div>
+                            <p class="eyebrow">Almost there</p>
+                            <h1>Add a profile photo</h1>
+                            <p class="subheading">A familiar face makes introductions easier.</p>
+                        </div>
+                    </div>
+                    <div class="onboarding-shell">
+                        <div class="onboarding-intro">
+                            <div>
+                                <p class="eyebrow">Make it yours</p>
+                                <h2>Your profile, your way.</h2>
+                                <p>Add a photo now, or skip and update it anytime from your profile.</p>
+                            </div><img class="intro-logo" src="assets/campusconnect-logo-on-dark.svg"
+                                alt="CampusConnect. Connect, Learn, Grow">
+                        </div>
+                        <div class="onboarding-card"><button class="quiet-button skip-setup" type="button"
+                                id="skip-photo">Skip for now</button>
+                            <div class="step-progress" aria-label="Step 3 of 3"><span>3/3</span><span
+                                    class="step-track"><span class="step-fill"
+                                        style="display:block;width:100%"></span></span><span>Photo</span></div>
+                            <h2>Profile photo</h2>
+                            <p>Use a clear, friendly photo of yourself.</p>
+                            <div class="photo-setup">
+                                <div class="photo-preview" id="onboarding-photo-preview"
+                                    aria-label="Profile photo preview">?</div>
+                                <p class="subheading" id="photo-filename">No photo selected</p><input
+                                    class="profile-photo-input" id="onboarding-photo-input" type="file"
+                                    accept="image/jpeg,image/png,image/webp"><button class="outline-button"
+                                    type="button" data-photo-picker="onboarding-photo-input">Upload photo</button>
+                                <p class="field-error" id="photo-error" role="alert"></p>
+                            </div>
+                            <div class="onboarding-actions"><button class="outline-button" type="button"
+                                    data-onboarding-back="details">← Back</button><button class="primary-button"
+                                    type="button" id="finish-setup">Finish setup</button></div>
+                            <div class="onboarding-note">JPG, PNG, or WebP. Maximum file size: 5 MB. Your photo stays in
+                                this browser session.</div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+        <nav class="mobile-nav" aria-label="Mobile navigation">
+            <button class="nav-button active" data-view="home"><span class="nav-icon">⌂</span><span>Home</span></button>
+            <button class="nav-button" data-view="people"><span class="nav-icon">♧</span><span>People</span></button>
+            <button class="nav-button" data-view="jobs"><span class="nav-icon">▣</span><span>Jobs</span></button>
+            <button class="nav-button" data-view="events"><span class="nav-icon">▦</span><span>Events</span></button>
+            <button class="nav-button" data-view="chat"><span class="nav-icon">▱</span><span>Chat</span></button>
+            <button class="nav-button" type="button" data-mobile-menu-toggle aria-expanded="false"
+                aria-controls="mobile-more-menu"><span class="nav-icon">•••</span><span>More</span></button>
+        </nav>
+        <nav class="mobile-more-menu" id="mobile-more-menu" aria-label="More navigation" hidden>
+            <button class="nav-button" data-view="communities"><span class="nav-icon">◉</span><span
+                    class="nav-label">Communities</span></button>
+            <button class="nav-button" data-view="courses"><span class="nav-icon">▤</span><span
+                    class="nav-label">Courses</span></button>
+            <button class="nav-button" data-view="profile"><span class="nav-icon">◎</span><span class="nav-label">My
+                    profile</span></button>
+            <button class="nav-button" data-view="auth"><span class="nav-icon">↗</span><span class="nav-label">Login /
+                    Sign up</span></button>
+        </nav>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
